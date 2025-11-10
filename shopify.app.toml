@@ -1,6 +1,6 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "33875f2f53ddab874189f391bc1b3ea5"
+# client_id = "" # Get a new client_id from Shopify Partner dashboard
 name = "gal-protect"
 application_url = "https://shopify.dev/apps/default-app-home"
 embedded = true
