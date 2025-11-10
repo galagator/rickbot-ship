@@ -1,0 +1,40 @@
+# Learn more about configuring your checkout UI extension:
+# https://shopify.dev/docs/api/checkout-ui-extensions/latest/configuration
+
+api_version = "2025-07"
+
+[[extensions]]
+name = "shipping-protection"
+handle = "shipping-protection"
+type = "ui_extension"
+uid = "f5280ec7-d1e3-68ea-1c3b-9b08eb0f7982db8ffe46"
+
+# Place the block near the order summary (good for opt-out toggles)
+[[extensions.targeting]]
+module = "./src/Checkout.tsx"
+target = "purchase.checkout.block.render"
+
+[extensions.capabilities]
+# Lets your extension use checkout APIs like useApplyCartLinesChange()
+api_access = true
+# If you need external network calls from the extension, uncomment:
+# network_access = true
+
+# Optional: load checkout metafields if you need them later
+# [[extensions.metafields]]
+# namespace = "pprotection"
+# key = "opt_out"
+
+# Merchant-configurable settings exposed in the Checkout editor
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "protectionVariantGID"
+type = "single_line_text_field"
+name = "Protection variant GID"
+description = "e.g. gid://shopify/ProductVariant/1234567890"
+
+[[extensions.settings.fields]]
+key = "defaultOn"
+type = "boolean"
+name = "Default ON (auto-add)"
+default = true
